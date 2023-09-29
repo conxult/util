@@ -4,9 +4,13 @@
   <packaging>jar</packaging>
   <name>CX :: Util</name>
 
+  <properties>
+    <cx-util.version>1.0.0</cx-util.version>
+  </properties>
+
   <groupId>de.conxult</groupId>
-  <artifactId>cx-util</artifactId>
-  <version>1.0.0</version>
+  <artifactId>util</artifactId>
+  <version>${cx-util.version}</version>
 
   <parent>
     <groupId>de.conxult</groupId>

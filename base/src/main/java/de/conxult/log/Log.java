@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author joergh
+ * @author joerg
  */
 public class Log {
 

@@ -26,4 +26,14 @@ public class EnumUtil {
     }
   }
 
+  public static Enum toEnum(String kind, String state) {
+    try {
+      return (Enum)Class.forName(kind)
+        .getMethod("valueOf", String.class)
+        .invoke(null, state);
+    } catch (Exception any) {
+      return null;
+    }
+  }
+
 }

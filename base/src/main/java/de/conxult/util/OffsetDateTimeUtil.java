@@ -3,13 +3,14 @@ package de.conxult.util;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimeUtil {
+public class OffsetDateTimeUtil {
     static List<String> dateFormats = List.of("yyyy-MM-dd", "yyyy/MM/dd", "dd.MM.yyyy", "dd.MM.yy");
     static List<String> timeFormats = List.of("HH:mm:ss.SSS", "HH:mm:ss", "HH:mm");
 
@@ -23,11 +24,11 @@ public class TimeUtil {
         }
     }
 
-    public static String toString(OffsetDateTime t) {
+    static public String toString(OffsetDateTime t) {
       return formatters.get(0).format(t);
     }
 
-    public static OffsetDateTime toOffsetDateTime(String text) {
+    static public OffsetDateTime of(String text) {
         DateTimeParseException firstException = null;
         try {
             return OffsetDateTime.parse(text);
@@ -52,12 +53,16 @@ public class TimeUtil {
             } catch (DateTimeParseException dateTimeParseException) {
             }
         }
-        
+
         throw firstException;
     }
 
-    public static OffsetDateTime toOffsetDateTime(Instant instant) {
+    static public OffsetDateTime of(Instant instant) {
         return ZonedDateTime.ofInstant(instant, ZoneId.systemDefault()).toOffsetDateTime();
+    }
+
+    static public OffsetDateTime of(long millis) {
+        return OffsetDateTime.ofInstant(Instant.ofEpochMilli(millis), ZoneOffset.UTC);
     }
 
     /*

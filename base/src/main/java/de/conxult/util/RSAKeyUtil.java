@@ -3,6 +3,7 @@
  */
 package de.conxult.util;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -21,26 +22,28 @@ import javax.crypto.Cipher;
  *
  * @author joerg
  */
+@ApplicationScoped
 public class RSAKeyUtil {
 
-    static boolean          initialized = false;
     static KeyPairGenerator generator;
     static KeyFactory       factory;
 
     public RSAKeyUtil() {
-        if (!initialized) {
+        postConstruct();
+    }
+
+    public void postConstruct() {
+        if (generator == null) {
             try {
                 generator = KeyPairGenerator.getInstance("RSA");
                 generator.initialize(2048);
                 factory   = KeyFactory.getInstance("RSA");
-                initialized = true;
             } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
-
             }
         }
     }
 
-    public RSAKeyPair generateKeyPair() throws Exception {
+    public RSAKeyPair generateKeyPair() {
         KeyPair pair = generator.generateKeyPair();
         return new RSAKeyPair(pair.getPrivate(), pair.getPublic());
     }
