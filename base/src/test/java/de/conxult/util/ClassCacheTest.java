@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
  */
 public class ClassCacheTest {
 
-  ClassCache testee = ClassCache.instanceOf(Sample.class);
+  ClassCache testee = ClassCache.of(Sample.class);
 
   @Test
   public void shouldCollectAllFields() {

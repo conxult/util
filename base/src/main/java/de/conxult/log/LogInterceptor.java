@@ -9,8 +9,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 
 /**
- * Interceptor for class and method Level. Prints a LogMessage when the method is entered and exited with execution
- * time.
+ * Interceptor for class and method Level. Prints a LogMessage when the method is entered and exited with execution time.
  */
 @Interceptor
 @Priority(0)

@@ -34,7 +34,7 @@ public class ClassCache {
     if (clazz.getSuperclass() != null &&
         !clazz.getName().startsWith("java.") &&
         !clazz.getName().startsWith("javax.")) {
-      ClassCache superClassCache = ClassCache.instanceOf(clazz.getSuperclass());
+      ClassCache superClassCache = ClassCache.of(clazz.getSuperclass());
       fields.addAll(superClassCache.fields);
       methods.addAll(superClassCache.methods);
       annotations.putAll(superClassCache.annotations);
@@ -99,7 +99,7 @@ public class ClassCache {
     return result.isEmpty() ? null : (A)result.get(0);
   }
 
-  public static ClassCache instanceOf(Class<?> clazz) {
+  public static ClassCache of(Class<?> clazz) {
     ClassCache classCache = classCaches.get(clazz);
     if (classCache == null) {
       classCache = new ClassCache(clazz);

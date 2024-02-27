@@ -1,12 +1,3 @@
-/*
- * Copyright (c) 2017 iTAC Software AG, Germany. All Rights Reserved.
- *
- * This software is protected by copyright. Under no circumstances may any part
- * of this file in any form be copied, printed, edited or otherwise distributed,
- * be stored in a retrieval system, or be translated into another language
- * without the written permission of iTAC Software AG.
- */
-
 package de.conxult.util;
 
 import java.io.IOException;

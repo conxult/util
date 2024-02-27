@@ -5,5 +5,6 @@
     <interceptors>
         <!-- order of interceptors in beans.xml determines interceptor ordering -->
         <class>de.conxult.log.LogInterceptor</class>
+        <class>de.conxult.workflow.WorkflowInterceptor</class>
     </interceptors>
 </beans>

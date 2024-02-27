@@ -13,7 +13,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 /**
  *
- * @author joergh
+ * @author joerg
  */
 @ApplicationScoped
 public class LogFactory {
